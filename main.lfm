@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 518
-  Height = 39
-  Top = 373
-  Width = 526
+  Left = 725
+  Height = 32
+  Top = 533
+  Width = 239
   BorderStyle = bsDialog
-  Caption = 'Simple and Configurable Pomodoro'
-  ClientHeight = 39
-  ClientWidth = 526
+  Caption = 'SC Pomodoro v1.1'
+  ClientHeight = 32
+  ClientWidth = 239
   FormStyle = fsStayOnTop
   Icon.Data = {
     3EF800000000010001007C7C00000100200028F8000016000000280000007C00
@@ -1998,27 +1998,28 @@ object frmMain: TfrmMain
     0000
   }
   OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   ShowInTaskBar = stNever
   LCLVersion = '1.4.4.0'
   object ProgressBar1: TProgressBar
     Left = 0
-    Height = 39
+    Height = 32
     Top = 0
-    Width = 450
+    Width = 184
     Align = alClient
     PopupMenu = PopupMenu1
     TabOrder = 0
   end
   object Label1: TLabel
-    Left = 450
-    Height = 39
+    Left = 184
+    Height = 32
     Top = 0
-    Width = 76
+    Width = 55
     Align = alRight
     AutoSize = False
     Caption = '-'
-    Font.Height = 39
+    Font.Height = 34
     Layout = tlCenter
     ParentColor = False
     ParentFont = False
@@ -2026,12 +2027,18 @@ object frmMain: TfrmMain
   end
   object tmrPomo: TTimer
     OnTimer = tmrPomoTimer
-    left = 240
+    left = 88
     top = 8
   end
   object PopupMenu1: TPopupMenu
-    left = 128
+    left = 48
     top = 6
+    object menMostrar: TMenuItem
+      Caption = 'Mostrar'
+      Default = True
+      Visible = False
+      OnClick = menMostrarClick
+    end
     object pmeStart: TMenuItem
       Caption = 'Start'
       OnClick = pmeStartClick
@@ -2050,7 +2057,9 @@ object frmMain: TfrmMain
     end
   end
   object TrayIcon1: TTrayIcon
+    BalloonFlags = bfInfo
     BalloonHint = 'SC Pomo'
+    BalloonTimeout = 5000
     PopUpMenu = PopupMenu1
     Icon.Data = {
       3EF800000000010001007C7C00000100200028F8000016000000280000007C00
@@ -4042,7 +4051,19 @@ object frmMain: TfrmMain
       0000
     }
     Visible = True
-    left = 359
+    OnClick = menMostrarClick
+    left = 128
+    top = 8
+  end
+  object IniPropStorage1: TIniPropStorage
+    StoredValues = <    
+      item
+        Name = 'time'
+        Value = '1500'
+        KeyString = 'time'
+      end>
+    IniFileName = 'config.ini'
+    left = 16
     top = 6
   end
 end
