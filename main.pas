@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  ComCtrls, Menus, StdCtrls, IniPropStorage, MMSystem;
+  ComCtrls, Menus, StdCtrls, IniPropStorage;
 
 type
 
@@ -64,7 +64,6 @@ begin
        Label1.Caption:= 'Fim';
        TrayIcon1.BalloonTitle:='terminou o pomo';
        TrayIcon1.BalloonHint:='faça uma pausa';
-              sndPlaySound('C:\sounds\test.wav', snd_Async or snd_NoDefault);
        frmMain.Show;
        TrayIcon1.ShowBalloonHint;
 
